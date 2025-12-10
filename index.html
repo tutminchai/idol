@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>神明 WebAR</title>
+
+  <!-- model-viewer -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+  <!-- WebAR -->
+  <script defer src="main.obf.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="temple-header">
+    <div class="temple-title">🔱 神明 WebAR 示範 🔱</div>
+  </div>
+
+  <div class="wrapper">
+    <div class="card temple-card">
+      <p class="subtitle">請使用手機開啟，點選 <strong>AR</strong> 圖示召請神尊。</p>
+
+      <model-viewer
+        id="arModel"
+        src="models/idol.glb"
+        ios-src="models/idol.usdz"
+        alt="神明 3D 模型"
+        ar
+        ar-modes="scene-viewer quick-look webxr"
+        camera-controls
+        auto-rotate
+        autoplay
+        touch-action="pan-y"
+        shadow-intensity="1"
+        exposure="1.1"
+        interaction-prompt="auto">
+      </model-viewer>
+
+      <div id="deviceHint" class="device-hint"></div>
+
+      <div class="hint temple-hint">
+        📜 <strong>操作指南：</strong><br />
+        ・單指旋轉神尊<br />
+        ・兩指縮放大小<br />
+        ・無 AR 按鈕代表裝置不支援 WebAR
+      </div>
+
+      <div class="footer temple-footer">
+        © 2025 — WebAR 神明
+      </div>
+    </div>
+  </div>
+</body>
+</html>
